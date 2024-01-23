@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  margin: 0 auto;
+  background: rgb(0,128,128);
+  color: rgb(211,211,211);
+}
+
+
