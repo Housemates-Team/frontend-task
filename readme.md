@@ -1,3 +1,4 @@
+
 ## Frontend Developer Coding Challenge: React, TypeScript, and Next.js Application
 
 ### Task Overview
@@ -35,3 +36,4 @@ Your challenge is to develop a small blog application leveraging React, TypeScri
 - Create a new branch for your work.
 - Push your code to your branch.
 - Once complete, submit a pull request to the original repository for review.
+r more details.
