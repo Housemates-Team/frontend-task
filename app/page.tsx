@@ -1,17 +1,13 @@
 import React from "react";
-import Header from "./components/Header";
 import BlogCard from "./components/BlogCard";
+import Header from "./components/Header";
+import { fetchData } from '../utils/api.js'
 
-export default function Home() {
+export default async function Home(): Promise<JSX.Element> {
+  const data = await fetchData();
+
   return (<div>
     <Header />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard />
+    <BlogCard data={data} />
   </div>);
 }
