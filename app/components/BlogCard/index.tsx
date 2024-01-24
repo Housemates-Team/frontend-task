@@ -1,6 +1,7 @@
-
-import React from 'react';
+'use client'
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { useGlobalContext } from '@/context/store';
 
 interface iBlog {
   body: string;
@@ -9,11 +10,15 @@ interface iBlog {
   userId: number;
 }
 
-const BlogCard: React.FC<{ data: iBlog[] }> = ({ data }) => {
+const BlogCard: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
+  const { setData } = useGlobalContext();
+  useEffect(() => {
+    setData(blogData)
+  })
   return (
     <>
-      {data.map((blog) => (
-        <Link key={blog.id} href={{ pathname: `/${blog.id}`, query: blog }} as={'test'}>
+      {blogData.map((blog) => (
+        <Link key={blog.id} href={{ pathname: `/${blog.id}` }}>
           <div key={blog.id} className="p-4 my-6 flex flex-col items-start">
             <img
               alt=''
