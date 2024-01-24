@@ -1,4 +1,5 @@
-export const authors: { name: string, job: string, age: number, hobbies: string[], contact: { phone: string, email: string } }[] = [
+import { iAuthor } from "@/types";
+export const authors: iAuthor[] = [
   {
     name: "Johann Wolfgang von Goethe",
     job: "Writer",

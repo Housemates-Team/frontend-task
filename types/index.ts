@@ -4,3 +4,10 @@ export interface iBlog {
   title: string;
   userId: number;
 }
+export interface iAuthor {
+  name: string,
+  job: string,
+  age: number,
+  hobbies: string[],
+  contact: { phone: string, email: string }
+}

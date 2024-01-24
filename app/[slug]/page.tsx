@@ -4,6 +4,7 @@ import React from "react"
 import { useGlobalContext } from '@/context/store';
 import { authors } from '@/utils/author'
 import { CommentSection } from "../components/CommentSection"
+import { iAuthor } from "@/types";
 
 interface PageProps {
   params: {
@@ -15,7 +16,7 @@ export default function Page({ params }: PageProps): JSX.Element {
   const { data } = useGlobalContext();
   const { slug } = params;
   const nSlug = slug - 1;
-  const currentAuthor: { name: string } = authors[data[nSlug].userId - 1];
+  const currentAuthor: iAuthor = authors[data[nSlug].userId - 1];
 
   return <><div key={data[nSlug].id} className=" flex flex-col items-start">
     <img
