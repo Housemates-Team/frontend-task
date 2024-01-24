@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useGlobalContext } from '@/context/store';
 import { authors } from '@/utils/author';
+import Image from 'next/image';
 
 interface iBlog {
   body: string;
@@ -14,7 +15,7 @@ interface iBlog {
 const BlogCard: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
   const { setData } = useGlobalContext();
   useEffect(() => {
-    setData(blogData)
+    setData(blogData);
   })
   return (
     <>
@@ -28,9 +29,17 @@ const BlogCard: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
               height={200}
               className='mx-auto rounded-lg mb-4'
             />
-            <h2 className='mx-auto text-white max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] truncate font-extrabold -mt-16 mb-4 text-4xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>{blog.title}</h2>
-            <p className="mx-auto font-medium max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] mb-4 line-clamp-2 text-gray-600">{blog.body}</p>
-            <p className="mx-auto justify-end font-semibold text-[rgb(0,128,128)]">{authors[blog.userId - 1]}</p>
+            <div className='mx-auto max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px]'>
+              <h2 className='mx-auto text-white truncate font-extrabold -mt-16 mb-4 text-4xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>{blog.title}</h2>
+              <p className="mx-auto font-medium  mb-4 line-clamp-2 text-gray-600">{blog.body}</p>
+              <div className="mx-auto font-semibold text-[rgb(0,128,128)] flex justify-between items-center w-full">
+                <p className="text-[rgb(0,128,128)]">{authors[blog.userId - 1]}</p>
+                <div className='flex flex-row'>
+                  <Image alt='comment sprite' src='./comment.svg' height={20} width={20} className='mr-1' />
+                  <p>3</p>
+                </div>
+              </div>
+            </div>
           </div>
         </Link >
       ))}
