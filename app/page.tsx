@@ -9,5 +9,9 @@ export default function Home() {
     <BlogCard />
     <BlogCard />
     <BlogCard />
+    <BlogCard />
+    <BlogCard />
+    <BlogCard />
+    <BlogCard />
   </div>);
 }
