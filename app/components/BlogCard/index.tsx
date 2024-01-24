@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useGlobalContext } from '@/context/store';
+import { authors } from '@/utils/author';
 
 interface iBlog {
   body: string;
@@ -29,7 +30,7 @@ const BlogCard: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
             />
             <h2 className='mx-auto text-white max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] truncate font-extrabold -mt-16 mb-4 text-4xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>{blog.title}</h2>
             <p className="mx-auto font-medium max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] mb-4 line-clamp-2 text-gray-600">{blog.body}</p>
-            <p className="mx-auto justify-end text-[rgb(0,128,128)]">...</p>
+            <p className="mx-auto justify-end font-semibold text-[rgb(0,128,128)]">{authors[blog.userId - 1]}</p>
           </div>
         </Link >
       ))}
