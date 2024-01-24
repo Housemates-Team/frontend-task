@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #121212;
+}
+
+/* page style container */
+.page-container {
+  @apply max-w-screen-xl m-auto py-10 px-5;
+}
+
+.button-primary {
+  @apply inline-block px-3 h-[38px] rounded shadow-md text-white bg-black hover:bg-gray-900;
+}
+
+/* page background color */
+.light-bg {
+  background-color: rgba(1,131,105,.1);
+}
+
+/* Dark mode */
+.dark-bg {
+    background-color: #000;
+    color: #fff;
+}
+
+.dark-mode {
+    background-color: #363636 !important;
+    color: #ddd;
+}
+
+.dark-mode input {
+  background-color: #363636;
+  color: #ddd;
+}
