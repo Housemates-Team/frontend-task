@@ -1,5 +1,5 @@
 import React from "react";
-import BlogCard from "./components/BlogCard";
+import BlogCard from "./components/Blog";
 import Header from "./components/Header";
 import { fetchData } from '../utils/api'
 import { iBlog } from "@/types";

@@ -1,55 +1,12 @@
-'use client'
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useGlobalContext } from '@/context/store';
-import { authors } from '@/utils/author';
-import Image from 'next/image';
+import { iBlog } from "@/types"
+import Image from "next/image"
+import Link from "next/link"
+import { authors } from "@/utils/author"
 
-interface iBlog {
-  body: string;
-  id: number;
-  title: string;
-  userId: number;
-}
-
-const BlogCard: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
-  const { setData } = useGlobalContext();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchBy, setSearchBy] = useState('title');
-
-  useEffect(() => {
-    setData(blogData);
-  }, [blogData, setData]);
-
-  const filteredBlogData = blogData.filter((blog) => {
-    if (searchBy === 'title') {
-      return blog.title.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (searchBy === 'author') {
-      const authorName = authors[blog.userId - 1].name.toLowerCase();
-      return authorName.includes(searchTerm.toLowerCase());
-    }
-  });
-
+export const BlogCard: React.FC<{ data: iBlog[] }> = ({ data }) => {
   return (
     <>
-      <div className="relative flex justify-center items-center mt-10 ">
-        <select
-          value={searchBy}
-          onChange={(e) => setSearchBy(e.target.value)}
-          className="p-3 bg-white ml-1 appearance-none font-semibold text-[rgb(0,128,128)]"
-        >
-          <option value="title">Title</option>
-          <option value="author">Author</option>
-        </select>
-        <input
-          type="text"
-          placeholder={`Search ${searchBy}`}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
-      </div>
-      {filteredBlogData.map((blog) => (
+      {data.map((blog: iBlog) => (
         <Link key={blog.id} href={{ pathname: `/${blog.id}` }}>
           <div key={blog.id} className="p-4 my-6 flex flex-col items-start">
             <img
@@ -71,10 +28,8 @@ const BlogCard: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
               </div>
             </div>
           </div>
-        </Link >
+        </Link>
       ))}
     </>
   );
-};
-
-export default BlogCard;
+}
