@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Sans } from "next/font/google";
 import "./globals.css";
 import { GlobalContextProvider } from "@/context/store";
 
-const inter = Inter({ subsets: ["latin"] });
+const firaSans = Fira_Sans({ subsets: ["latin"], weight: '400' });
 
 export const metadata: Metadata = {
   title: "Housemates blog",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={firaSans.className}>
         <GlobalContextProvider>
           {children}
         </GlobalContextProvider>
