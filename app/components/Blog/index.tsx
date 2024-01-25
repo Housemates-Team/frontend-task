@@ -36,7 +36,7 @@ const Blog: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
       <div className="relative flex justify-center items-center mt-4 lg:mt-10 ">
         <button
           onClick={() => setSearchBy(searchBy === "title" ? "author" : "title")}
-          className="p-3 bg-white ml-1 appearance-none font-semibold text-[rgb(0,128,128)]"
+          className="p-3 bg-opacity-0 ml-1 appearance-none font-semibold text-[rgb(0,128,128)]"
         >
           {searchBy === "title" ? "Title" : "Author"}
         </button>
