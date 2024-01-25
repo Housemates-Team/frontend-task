@@ -1,17 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useGlobalContext } from '@/context/store';
 import { authors } from '@/utils/author';
-import Image from 'next/image';
 import { BlogCard } from '../BlogCard';
-
-interface iBlog {
-  body: string;
-  id: number;
-  title: string;
-  userId: number;
-}
+import { iBlog } from '@/types';
 
 const Blog: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
   const { setData } = useGlobalContext();
@@ -36,7 +28,7 @@ const Blog: React.FC<{ blogData: iBlog[] }> = ({ blogData }) => {
       <div className="relative flex justify-center items-center mt-4 lg:mt-10 ">
         <button
           onClick={() => setSearchBy(searchBy === "title" ? "author" : "title")}
-          className="p-3 bg-opacity-0 ml-1 appearance-none font-semibold text-[rgb(0,128,128)]"
+          className="p-3 font-semibold text-[rgb(0,128,128)] min-w-[80px]"
         >
           {searchBy === "title" ? "Title" : "Author"}
         </button>

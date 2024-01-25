@@ -1,5 +1,5 @@
 import React from "react";
-import BlogCard from "./components/Blog";
+import Blog from "./components/Blog";
 import Header from "./components/Header";
 import { fetchData } from '../utils/api'
 import { iBlog } from "@/types";
@@ -9,6 +9,6 @@ export default async function Home(): Promise<JSX.Element> {
 
   return (<div>
     <Header />
-    <BlogCard blogData={data} />
+    <Blog blogData={data} />
   </div>);
 }
