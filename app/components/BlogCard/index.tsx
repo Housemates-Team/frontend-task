@@ -7,8 +7,8 @@ export const BlogCard: React.FC<{ data: iBlog[] }> = ({ data }) => {
   return (
     <>
       {data.map((blog: iBlog) => (
-        <Link key={blog.id} href={{ pathname: `/${blog.id}` }}>
-          <div key={blog.id} className="p-4 my-6 flex flex-col items-start">
+        <div key={blog.id} className=" flex justify-center items-center">
+          <Link key={blog.id} href={{ pathname: `/${blog.id}` }} className="mt-4 lg:mt-10 mb-6 flex flex-col items-start">
             <img
               alt=''
               src={`https://picsum.photos/seed/${blog.id}/1000/200`}
@@ -27,8 +27,8 @@ export const BlogCard: React.FC<{ data: iBlog[] }> = ({ data }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </>
   );
