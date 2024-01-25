@@ -28,7 +28,7 @@ export default function Page({ params }: PageProps): JSX.Element {
     />
     <div className="mx-auto text-white max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px]">
       <h2 className=' font-bold text-[rgb(0,128,128)] underline my-10 text-4xl '>{data[nSlug].title + '.'}</h2>
-      <p className=" mb-4 text-gray-600">{data[nSlug].body}</p>
+      <p className=" mb-4 text-gray-600">{data[nSlug].body}{data[nSlug].body}{data[nSlug].body}{data[nSlug].body}{data[nSlug].body}{data[nSlug].body}</p>
     </div>
     <p className="mx-auto font-semibold justify-end text-[rgb(0,128,128)]">{currentAuthor.name}</p>
   </div>
